@@ -1,0 +1,45 @@
+Application designed for simple surveying users and storing information in database.
+Application showcases REST API created with Spring Boot.
+Each survey is designed by one user and includes title and question. 
+User can create new survey and answer to existing ones in the range [0 ; 5]. 
+Communication handles the HTTP protocol with JSON syntax. 
+
+Functionalities:
+
+1.	Creating new user 
+[POST] /api/user/{username}
+
+2.	Creating a new survey by the user
+[POST] /api/survey/{user_id}/{survey_title}/{question}
+
+3.	Getting surveys created by the user for a given ID.
+[GET] /api/surveys/user/{user_id}
+
+4.	Getting all surveys 
+[GET]/api/surveys
+
+5.	Removing survey with provided answers.
+[DELETE] /api/survey/{survey_id}
+
+6.	Creating a survey answer.
+[POST] /api/answer/{survey_id}/{user_id}/{rating}
+
+7.	Getting answer by given ID
+[GET] /api/answer/{answer_id}
+
+8.	Answer modification by given answer ID and new rating
+[PUT] /api/answer/{answer_id}/{rating}
+
+9.	User statistics presentation:
+-  Number of created surveys,
+-  Average rating from answers to each survey,
+- Number of answers to each survey.
+[GET] /api/stats/user/{user_id}
+
+10.	Presentation of statistics for the entire system:
+- Ranking of the number of created surveys,
+- Ranking of the number of answers per survey,
+- The average number of surveys per system user,
+- Average number of answers per survey,
+- Number of all surveys.
+[GET] /api/stats
